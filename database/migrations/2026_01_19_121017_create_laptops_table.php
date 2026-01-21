@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('laptops', function (Blueprint $table) {
-            $table->id();
-            $table->string('brand');
-            $table->string('model');
-            $table->string('serial_number')->unique();
-            $table->integer('stock')->default(1);
-            $table->decimal('rental_price', 8, 2);
-            $table->text('description')->nullable(); // <-- Add this line
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('brand');
+    $table->string('model');
+    $table->string('serial_number')->unique();
+    $table->integer('stock')->default(1);
+    $table->integer('max_stock')->default(10); // ✅ ADD THIS
+    $table->decimal('rental_price', 8, 2);
+    $table->text('description')->nullable();
+    $table->timestamps();
+});
     }
 
     /**
